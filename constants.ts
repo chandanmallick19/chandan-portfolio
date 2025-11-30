@@ -117,7 +117,7 @@ export const EXPERIENCE: ExperienceItem[] = [
 export const EDUCATION: EducationItem[] = [
   {
     institution: "ITER, Siksha ‘O’ Anusandhan",
-    degree: "BTech in Computer Science & Engineering; GPA: 8.24",
+    degree: "BTech in Computer Science & Engineering",
     year: "11/2021 – 08/2025"
   },
   {
