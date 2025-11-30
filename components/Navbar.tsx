@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,18 +44,25 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled
-        ? 'bg-slate-950/80 backdrop-blur-md border-b border-emerald-900/30 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]'
-        : 'bg-transparent py-5'
+          ? 'bg-slate-950/80 backdrop-blur-md border-b border-emerald-900/30 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]'
+          : 'bg-transparent py-5'
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a
           href="#home"
           onClick={(e) => handleScroll(e, '#home')}
-          className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent cursor-pointer relative group"
+          className="flex items-center gap-2 cursor-pointer group"
         >
-          CKM<span className="text-slate-500">.dev</span>
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+          <div className="transform transition-transform duration-300 group-hover:rotate-180">
+            <Logo className="w-10 h-10" />
+          </div>
+          <div className="relative">
+            <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+              CKM<span className="text-slate-500">.dev</span>
+            </span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+          </div>
         </a>
 
         {/* Desktop Nav */}
