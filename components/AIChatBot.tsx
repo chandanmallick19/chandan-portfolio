@@ -67,9 +67,8 @@ const AIChatBot: React.FC = () => {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center ${
-          isOpen ? 'bg-red-500 rotate-90' : 'bg-emerald-500 animate-bounce'
-        }`}
+        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center ${isOpen ? 'bg-red-500 rotate-90' : 'bg-emerald-500 animate-bounce'
+          }`}
         aria-label="Toggle Chat"
       >
         {isOpen ? <X className="text-white w-6 h-6" /> : <MessageSquare className="text-white w-6 h-6" />}
@@ -97,23 +96,20 @@ const AIChatBot: React.FC = () => {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex items-start space-x-2 ${
-                  msg.role === 'user' ? 'flex-row-reverse space-x-reverse' : 'flex-row'
-                }`}
+                className={`flex items-start space-x-2 ${msg.role === 'user' ? 'flex-row-reverse space-x-reverse' : 'flex-row'
+                  }`}
               >
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                    msg.role === 'user' ? 'bg-blue-600' : 'bg-emerald-600'
-                  }`}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-blue-600' : 'bg-emerald-600'
+                    }`}
                 >
                   {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
                 </div>
                 <div
-                  className={`max-w-[75%] p-3 rounded-2xl text-sm ${
-                    msg.role === 'user'
+                  className={`max-w-[75%] p-3 rounded-2xl text-sm ${msg.role === 'user'
                       ? 'bg-blue-600 text-white rounded-tr-none'
                       : 'bg-slate-800 text-slate-200 rounded-tl-none border border-slate-700'
-                  }`}
+                    }`}
                 >
                   {msg.text}
                 </div>
