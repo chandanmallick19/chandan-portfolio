@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { PROFILE } from '../constants';
+import ProfileImage from '../assets/profile.jpg';
+
 
 const Hero: React.FC = () => {
   return (
@@ -68,7 +70,7 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 bg-slate-800 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center border border-slate-700 group">
               {/* Placeholder for Profile Image - would ideally be replaced by a real photo */}
               <img
-                src="/assets/profile.jpg"
+                src={ProfileImage}
                 alt="Chandan Kumar Mallick"
                 className="w-full h-full object-cover"
               />
