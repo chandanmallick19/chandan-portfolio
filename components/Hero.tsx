@@ -45,7 +45,13 @@ const Hero: React.FC = () => {
               Hire Me
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
-            <button className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-xl border border-slate-700 hover:border-slate-500 transition-all flex items-center shadow-lg hover:-translate-y-1">
+            <button
+              onClick={() =>
+                window.location.href =
+                "mailto:chandansoumya28@gmail.com?subject=Request%20for%20Resume&body=Hi%2C%0A%0AI%20would%20like%20to%20request%20your%20resume.%0A%0AThanks!"
+              }
+              className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-xl border border-slate-700 hover:border-slate-500 transition-all flex items-center shadow-lg hover:-translate-y-1"
+            >
               <Download className="mr-2 w-5 h-5" />
               Download CV
             </button>
