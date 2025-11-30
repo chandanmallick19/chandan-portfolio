@@ -31,11 +31,11 @@ const Hero: React.FC = () => {
           <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
             {PROFILE.tagline}
           </p>
-          
+
           <p className="text-slate-500 text-sm italic">{PROFILE.location}</p>
 
           <div className="flex flex-wrap gap-4 pt-4">
-            <a 
+            <a
               href="#contact"
               className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold rounded-lg transition-all flex items-center group"
             >
@@ -66,10 +66,12 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 border-2 border-emerald-500/20 rounded-2xl rotate-6"></div>
             <div className="absolute inset-0 border-2 border-blue-500/20 rounded-2xl -rotate-6"></div>
             <div className="absolute inset-0 bg-slate-800 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center border border-slate-700 group">
-               {/* Placeholder for Profile Image - would ideally be replaced by a real photo */}
-               <div className="text-slate-600 text-6xl font-bold group-hover:text-emerald-500 transition-colors">
-                  CKM
-               </div>
+              {/* Placeholder for Profile Image - would ideally be replaced by a real photo */}
+              <img
+                src="/assets/profile.jpg"
+                alt="Chandan Kumar Mallick"
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Tech badges floating */}
             <div className="absolute -right-4 top-10 bg-slate-800 p-3 rounded-lg border border-slate-700 shadow-xl animate-pulse-slow">
