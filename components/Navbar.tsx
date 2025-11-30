@@ -35,75 +35,78 @@ const Navbar: React.FC = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
+
       setMobileMenuOpen(false);
     }
   };
 
   return (
     <nav
-      className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800 py-3' : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled
+        ? 'bg-slate-950/80 backdrop-blur-md border-b border-emerald-900/30 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]'
+        : 'bg-transparent py-5'
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           onClick={(e) => handleScroll(e, '#home')}
-          className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent cursor-pointer"
+          className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent cursor-pointer relative group"
         >
           CKM<span className="text-slate-500">.dev</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-1">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleScroll(e, link.href)}
-              className="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer"
+              className="relative px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer group overflow-hidden rounded-lg"
             >
-              {link.name}
+              <span className="relative z-10">{link.name}</span>
+              <span className="absolute inset-0 bg-emerald-500/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
             </a>
           ))}
           <a
-             href="#contact"
-             onClick={(e) => handleScroll(e, '#contact')}
-             className="px-4 py-2 text-xs font-semibold text-slate-950 bg-emerald-400 rounded-full hover:bg-emerald-300 transition-colors cursor-pointer"
+            href="#contact"
+            onClick={(e) => handleScroll(e, '#contact')}
+            className="ml-4 px-6 py-2.5 text-xs font-bold text-slate-950 bg-emerald-400 rounded-full hover:bg-emerald-300 transition-all cursor-pointer shadow-[0_0_10px_rgba(52,211,153,0.3)] hover:shadow-[0_0_20px_rgba(52,211,153,0.6)] hover:scale-105 active:scale-95"
           >
-            Hire Me
+            HIRE ME
           </a>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-slate-300"
+          className="md:hidden text-slate-300 hover:text-emerald-400 transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 py-4 px-6 flex flex-col space-y-4 shadow-xl">
+        <div className="md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 py-4 px-6 flex flex-col space-y-2 shadow-2xl animate-fade-in">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleScroll(e, link.href)}
-              className="text-slate-300 hover:text-emerald-400 py-2 block border-b border-slate-800 last:border-0 cursor-pointer"
+              className="text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 py-3 px-4 rounded-lg block transition-all cursor-pointer border-l-2 border-transparent hover:border-emerald-500"
             >
               {link.name}
             </a>
           ))}
           <a
-             href="#contact"
-             onClick={(e) => handleScroll(e, '#contact')}
-             className="text-center font-semibold text-emerald-400 py-2 cursor-pointer"
+            href="#contact"
+            onClick={(e) => handleScroll(e, '#contact')}
+            className="text-center font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 py-3 rounded-lg mt-4 cursor-pointer shadow-lg"
           >
-            Contact Me
+            Hire Me
           </a>
         </div>
       )}
