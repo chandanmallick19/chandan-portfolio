@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Chandan Kumar Mallick | Cybersecurity & Software Developer</title>
   <!-- Favicon: Hexagon Shield Logo -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 5 L89 27.5 V72.5 L50 95 L11 72.5 V27.5 Z' stroke='%2310b981' stroke-width='3' fill='%230f172a' /%3E%3Ccircle cx='50' cy='50' r='6' fill='%2310b981' /%3E%3Cpath d='M50 50 L50 80' stroke='%233b82f6' stroke-width='2.5' /%3E%3Cpath d='M50 50 L24 35' stroke='%233b82f6' stroke-width='2.5' /%3E%3Cpath d='M50 50 L76 35' stroke='%233b82f6' stroke-width='2.5' /%3E%3C/svg%3E">
@@ -18,8 +18,14 @@
               850: '#151f2e',
               950: '#020617',
             },
+            // Map emerald to CSS variables for dynamic theming
             emerald: {
-              450: '#10b981',
+              300: 'rgb(var(--color-primary-300) / <alpha-value>)',
+              400: 'rgb(var(--color-primary-400) / <alpha-value>)',
+              450: 'rgb(var(--color-primary-500) / <alpha-value>)', // Mapping existing custom color
+              500: 'rgb(var(--color-primary-500) / <alpha-value>)',
+              600: 'rgb(var(--color-primary-600) / <alpha-value>)',
+              900: 'rgb(var(--color-primary-900) / <alpha-value>)',
             }
           },
           fontFamily: {
@@ -31,6 +37,8 @@
             'slide-up': 'slideUp 0.8s ease-out',
             'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             'blob': 'blob 7s infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
           },
           keyframes: {
             fadeIn: {
@@ -46,6 +54,10 @@
               "33%": { transform: "translate(30px, -50px) scale(1.1)" },
               "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
               "100%": { transform: "translate(0px, 0px) scale(1)" }
+            },
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-20px)" }
             }
           },
         },
@@ -56,8 +68,27 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
     rel="stylesheet">
   <style>
+    :root {
+      /* Default: Blue Team (Emerald/Green) */
+      --color-primary-300: 110 231 183;
+      --color-primary-400: 52 211 153;
+      --color-primary-500: 16 185 129;
+      --color-primary-600: 5 150 105;
+      --color-primary-900: 6 78 59;
+    }
+
+    .theme-red {
+      /* Red Team (Crimson/Red) */
+      --color-primary-300: 252 165 165;
+      --color-primary-400: 248 113 113;
+      --color-primary-500: 239 68 68;
+      --color-primary-600: 220 38 38;
+      --color-primary-900: 127 29 29;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
+      transition: background-color 0.5s ease;
     }
 
     /* Custom scrollbar for Webkit */

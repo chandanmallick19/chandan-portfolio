@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-const TechBackground: React.FC = () => {
+interface TechBackgroundProps {
+    theme: 'blue' | 'red';
+}
+
+const TechBackground: React.FC<TechBackgroundProps> = ({ theme }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -30,7 +34,8 @@ const TechBackground: React.FC = () => {
             ctx.fillStyle = 'rgba(2, 6, 23, 0.05)';
             ctx.fillRect(0, 0, width, height);
 
-            ctx.fillStyle = '#059669'; // Emerald-600 for the text
+            // Color based on theme
+            ctx.fillStyle = theme === 'blue' ? '#059669' : '#dc2626'; // Emerald-600 vs Red-600
             ctx.font = `${fontSize}px monospace`;
 
             for (let i = 0; i < drops.length; i++) {
@@ -60,7 +65,7 @@ const TechBackground: React.FC = () => {
             clearInterval(interval);
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [theme]); // Re-run effect when theme changes
 
     return (
         <canvas

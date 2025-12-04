@@ -1,8 +1,38 @@
-import React from 'react';
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Download, Github, Linkedin, Mail, Shield, Server, Terminal, Lock } from 'lucide-react';
 import { PROFILE } from '../constants';
 
 const Hero: React.FC = () => {
+  const [displayText, setDisplayText] = useState(PROFILE.name);
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
+
+  const animateText = () => {
+    let iteration = 0;
+    const interval = setInterval(() => {
+      setDisplayText(prev =>
+        prev
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration) {
+              return PROFILE.name[index];
+            }
+            return letters[Math.floor(Math.random() * letters.length)];
+          })
+          .join("")
+      );
+
+      if (iteration >= PROFILE.name.length) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 30);
+  };
+
+  useEffect(() => {
+    animateText();
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="home">
       {/* Background Decor */}
@@ -12,7 +42,23 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Floating 3D Icons */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[15%] left-[5%] text-emerald-500/20 animate-float">
+          <Shield size={64} strokeWidth={1} />
+        </div>
+        <div className="absolute bottom-[20%] left-[15%] text-blue-500/20 animate-float-delayed">
+          <Server size={48} strokeWidth={1} />
+        </div>
+        <div className="absolute top-[25%] right-[10%] text-purple-500/20 animate-float" style={{ animationDuration: '8s' }}>
+          <Terminal size={56} strokeWidth={1} />
+        </div>
+        <div className="absolute bottom-[10%] right-[20%] text-red-500/20 animate-float-delayed" style={{ animationDuration: '7s' }}>
+          <Lock size={40} strokeWidth={1} />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         <div className="order-2 lg:order-1 space-y-8 animate-slide-up">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-emerald-400 text-sm font-medium backdrop-blur-sm shadow-sm">
             <span className="relative flex h-3 w-3 mr-3">
@@ -24,8 +70,12 @@ const Hero: React.FC = () => {
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
             Hello, I'm <br />
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-500 bg-clip-text text-transparent drop-shadow-sm">
-              {PROFILE.name}
+            <span
+              className="bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-500 bg-clip-text text-transparent drop-shadow-sm cursor-pointer hover:opacity-80 transition-opacity"
+              onMouseEnter={animateText}
+              title="Click to decipher"
+            >
+              {displayText}
             </span>
           </h1>
 
