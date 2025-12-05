@@ -47,9 +47,9 @@ function App() {
         // Add new key and keep only the last N keys (where N is length of konami code)
         const updatedBuffer = [...prev, e.key].slice(-konamiCode.length);
 
-        // Check if buffer matches konami code
+        // Check if buffer matches konami code (case-insensitive to handle CapsLock or variations)
         if (updatedBuffer.length === konamiCode.length &&
-          updatedBuffer.every((key, index) => key === konamiCode[index])) {
+          updatedBuffer.every((key, index) => key.toLowerCase() === konamiCode[index].toLowerCase())) {
           setGodModeOpen(true);
           return []; // Reset buffer after success
         }
