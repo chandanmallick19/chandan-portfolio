@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chandanmallick19.github.io/chandan-portfolio/sitemap.xml

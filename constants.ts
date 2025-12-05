@@ -10,6 +10,7 @@ export const PROFILE = {
   linkedin: "https://www.linkedin.com/in/chandanmallick19",
   github: "https://github.com/chandanmallick19",
   blog: "https://chandanmallick19.blogspot.com/",
+  website: "https://chandanmallick19.github.io/chandan-portfolio" // Assumed GitHub Pages URL based on username
 };
 
 export const SKILLS: SkillCategory[] = [
@@ -138,7 +139,7 @@ export const PROJECTS: ProjectItem[] = [
     description: "Developed an AI-powered Fake News Detection System using NLP and deep learning techniques to accurately classify news articles as real or fake.",
     duration: "03/2025 – 06/2025",
     technologies: ["NLP", "Deep Learning", "Python"],
-    link: "https://www.kaggle.com/code/chandanm19/notebook",
+    link: "https://github.com/chandanmallick19",
     type: 'project'
   },
   {
@@ -146,7 +147,7 @@ export const PROJECTS: ProjectItem[] = [
     description: "Developed a role-based E-Medical Management System using Spring Boot, enabling patients to book appointments, doctors to manage them, and admins to oversee system operations.",
     duration: "11/2024 – 01/2025",
     technologies: ["Spring Boot", "Java", "Web"],
-    link: "https://github.com/chandanmallick19/eMedical-Management-System",
+    link: "https://github.com/chandanmallick19",
     type: 'project'
   },
   {
@@ -154,7 +155,7 @@ export const PROJECTS: ProjectItem[] = [
     description: "Constructed a comprehensive banking management system using JDBC and Oracle Database, supporting seamless account management and secure transactions for over 500 users.",
     duration: "04/2024 – 05/2024",
     technologies: ["JDBC", "Oracle Database", "Java"],
-    link: "https://github.com/chandanmallick19/Banking-Management",
+    link: "https://github.com/chandanmallick19",
     type: 'project'
   },
   {
@@ -162,7 +163,6 @@ export const PROJECTS: ProjectItem[] = [
     description: "Published a review paper titled 'AI in Cybersecurity: Application and Research Challenges' in RAECC-2025, exploring the role of artificial intelligence in enhancing cybersecurity, and key research gaps in the field.",
     duration: "05/2025",
     technologies: ["Research", "Cybersecurity", "AI"],
-    link: "https://docs.google.com/document/d/1IoRmHL8GewYQXvC1D5FZYAajsQJ4Jffs/edit?usp=sharing&ouid=104221234503511435742&rtpof=true&sd=true",
     type: 'publication'
   }
 ];
